@@ -1,3 +1,9 @@
+#Raspberry Pi Pico Honeywell FMA Microforce SPI MicroPython Module
+#Device: RP2040, Honeywell FMA Microforce
+#File: microforce_spi.py
+#Author: Mike Kushnerik
+#Date: 10/5/2022
+
 from machine import SPI, Pin
 import time
 

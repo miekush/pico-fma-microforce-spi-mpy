@@ -1,3 +1,9 @@
+#Raspberry Pi Pico Honeywell FMA Microforce SPI MicroPython Module Example Usage
+#Device: RP2040, Honeywell FMA Microforce
+#File: main.py
+#Author: Mike Kushnerik
+#Date: 10/5/2022
+
 #import microforce module
 from microforce_spi import MicroForceSensor
 
