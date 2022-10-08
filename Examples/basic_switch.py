@@ -22,8 +22,6 @@ fma1 = MicroForceSensor(
 fma1.zero()
 
 while 1: 
-    #read sensor
-    status, force, temp = fma1.read()
-    print("Status: " + status + ", Force: " + str(force) + " N, Temp: " + str(temp) + " °C")
-    #print(fma1.pressed())
+    #check if sensor is pressed
+    print(fma1.pressed())
     time.sleep(0.1)
