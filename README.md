@@ -33,7 +33,7 @@ By default, Pico SPI instance 0 is used, however this can be changed in the cons
 
 # Breakout
 
-To help with evaluation, I designed a simple breakout in KiCad that supports all variants of the FMA series. See the repo for design files and ordering info.
+To help with evaluation, I designed a simple breakout in KiCad that supports all variants of the FMA series. See [the repo](https://github.com/miekush/honeywell-fma-sensor-breakout) for design files and ordering info.
 
 # Installation
 
