@@ -4,15 +4,17 @@
 #Author: Mike Kushnerik
 #Date: 10/5/2022
 
-#import microforce module
+from machine import SPI, Pin
 from microforce_spi import MicroForceSensor
+import time
+
+#create instance of SPI class
+spi = SPI(0, 100000, sck=Pin(2), miso=Pin(4))
 
 #create instance of MicroForceSensor class
 fma1 = MicroForceSensor(
-    #pico spi instance
-    spi_instance = 0,
     #pico spi pins
-    miso = 4, sck = 2, cs = 5,
+    spi, cs = 5,
     #25N
     force_range = 25,
     #20% -> 80%, see sensor datasheet
@@ -22,6 +24,6 @@ fma1 = MicroForceSensor(
 fma1.zero()
 
 while 1: 
-    #check if sensor is pressed
+    #read switch
     print(fma1.pressed())
     time.sleep(0.1)

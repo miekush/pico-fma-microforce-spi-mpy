@@ -4,21 +4,20 @@
 #Author: Mike Kushnerik
 #Date: 10/5/2022
 
-from machine import SPI, Pin
+from machine import Pin
 import time
 
 #class for Honeywell FMA MicroForce Sensors
 class MicroForceSensor:
-    #see SPI communications technical paper
+    #see SPI communcations technical paper
     status_values = {
         0b00: "Normal Mode",
         0b01: "Command Mode",
         0b10: "Data Stale",
         0b11: "Diagnostic Mode"}
-    
     #constructor
-    def __init__(self, miso, sck, cs, spi_instance=0, force_range=5, transfer_func='A', bitrate=100000, offset=0, threshold=0.1, pressed_threshold=0.2):
-        self.spi = SPI(spi_instance, bitrate, sck=Pin(sck), miso=Pin(miso))
+    def __init__(self, spi, cs, force_range=5, transfer_func='A', offset=0, threshold=0.1, pressed_threshold=0.2):
+        self.spi = spi
         self.cs = Pin(cs, mode=Pin.OUT, value=1)
         #check sensor transfer function
         if transfer_func == 'A':
