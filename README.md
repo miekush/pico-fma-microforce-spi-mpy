@@ -5,11 +5,15 @@ This is a Raspberry Pi Pico MicroPython module for the Honeywell FMA Microforce 
 # Example Usage
 
 ```python
+from machine import SPI, Pin
 from microforce_spi import MicroForceSensor
+import time
+
+spi = SPI(0, 100000, sck=Pin(2), miso=Pin(4))
 
 fma1 = MicroForceSensor(
-    spi_instance = 0,
-    miso = 4, sck = 2, cs = 5,
+    #pico spi pins
+    spi, cs = 5,
     #25N
     force_range = 25,
     #20% -> 80%, see sensor datasheet
@@ -29,7 +33,7 @@ By default, Pico SPI instance 0 is used, however this can be changed in the cons
 
 # Breakout
 
-To help with evaluation, I designed a simple breakout in KiCad that supports all variants of the FMA series. See the repo for design files and ordering info.
+To help with evaluation, I designed a simple breakout in KiCad that supports all variants of the FMA series. See [the repo](https://github.com/miekush/honeywell-fma-sensor-breakout) for design files and ordering info.
 
 # Installation
 
