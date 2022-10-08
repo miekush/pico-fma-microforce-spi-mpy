@@ -5,11 +5,15 @@ This is a Raspberry Pi Pico MicroPython module for the Honeywell FMA Microforce 
 # Example Usage
 
 ```python
+from machine import SPI, Pin
 from microforce_spi import MicroForceSensor
+import time
+
+spi = SPI(0, 100000, sck=Pin(2), miso=Pin(4))
 
 fma1 = MicroForceSensor(
-    spi_instance = 0,
-    miso = 4, sck = 2, cs = 5,
+    #pico spi pins
+    spi, cs = 5,
     #25N
     force_range = 25,
     #20% -> 80%, see sensor datasheet
